@@ -1,2 +1,6 @@
-<app-menu></app-menu>
-<app-tree></app-tree>
+<app-show-path [node]="node"></app-show-path>
+
+<!-- <app-menu ></app-menu> -->
+
+<app-tree (nodeEvent)="receiveMessage($event)"></app-tree>
+

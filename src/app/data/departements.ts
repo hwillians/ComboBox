@@ -23,7 +23,7 @@ export const departements: Departement[] = [
     new Departement("2A", "Corse-du-Sud", "Corse"),
     new Departement("2B", "Haute-Corse", "Corse"),
     new Departement("21", "Côte-d'Or", "Bourgogne-Franche-Comté"),
-    new Departement("22", "Côtes d'Armor", "Bretagne"),
+    new Departement("22", "Côtes-d'Armor", "Bretagne"),
     new Departement("23", "Creuse", "Nouvelle-Aquitaine"),
     new Departement("24", "Dordogne", "Nouvelle-Aquitaine"),
     new Departement("25", "Doubs", "Bourgogne-Franche-Comté"),

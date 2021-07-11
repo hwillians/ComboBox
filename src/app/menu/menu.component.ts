@@ -1,7 +1,9 @@
+import { EventEmitter, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Commune } from '../models/commune';
 import { Departement } from '../models/departement';
 import { Region } from '../models/region';
+import { TerritorialNode } from '../models/territorial-node';
 import { MenuService } from '../services/menu.service';
 export class MatMenuListItem {
   menuLinkText: string | undefined;
@@ -24,6 +26,12 @@ export class MenuComponent implements OnInit {
 
   constructor(private menuService: MenuService) {
     this.regions = this.menuService.insertRegions()
+  }
+
+  @Output() nodeEvent = new EventEmitter<TerritorialNode>();
+  
+  pushPath(node: TerritorialNode) {
+    this.nodeEvent.emit(node)
   }
 
   loadDepartments(region: string) {

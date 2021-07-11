@@ -14,28 +14,29 @@ export class TreeService {
 
   loadTerritorialNode(): TerritorialNode[] {
 
+    const _pays = 'France';
     // Inisitalise l'arbre evec entrée pays
-    let franceTree: TerritorialNode[] = [{ name: 'France' }]
+    let franceTree: TerritorialNode[] = [{ name: _pays }]
     // un premier niveau avec les regions
     let regionsTree: TerritorialNode[] = []
     regions.forEach(region => {
-      regionsTree.push({ name: region.name })
+      regionsTree.push({ name: region.name, region: region.name })
     });
 
     regionsTree.forEach(node => {
       let departmentsTree: TerritorialNode[] = []
       departements.filter(function (element) {
         return element.region == node.name;
-      }).forEach(region => {
-        departmentsTree.push({ name: region.name })
+      }).forEach(department => {
+        departmentsTree.push({ name: department.name, department: department.name, region: department.region })
       });
 
       departmentsTree.forEach(node => {
         let communesTree: TerritorialNode[] = []
         communes.filter(function (element) {
           return element.departement == node.name;
-        }).forEach(departement => {
-          communesTree.push({ name: departement.name })
+        }).forEach(commune => {
+          communesTree.push({ name: commune.name, commune: commune.name, department: commune.departement, region: commune.region })
         });
         node.children = communesTree;
       });

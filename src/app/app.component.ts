@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { TerritorialNode } from './models/territorial-node';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ComboBox';
+  node!: TerritorialNode ;
+
+  receiveMessage(node: TerritorialNode) {
+    this.node = node
+  }
 }
