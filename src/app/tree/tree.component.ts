@@ -10,16 +10,17 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
   styleUrls: ['./tree.component.css']
 })
 export class TreeComponent implements OnInit {
+  @Output()
+  nodeEvent = new EventEmitter<TerritorialNode>();
 
   treeControl = new NestedTreeControl<TerritorialNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<TerritorialNode>();
-  node : TerritorialNode = {name:""} ;
+
+  node: TerritorialNode = { name: "" };
+
   constructor(private serv: TreeService) {
     this.dataSource.data = this.serv.loadTerritorialNode()
   }
-
-  @Output() nodeEvent = new EventEmitter<TerritorialNode>();
-
 
   pushPath(node: TerritorialNode) {
     this.nodeEvent.emit(node)
@@ -27,6 +28,5 @@ export class TreeComponent implements OnInit {
 
   hasChild = (_: number, node: TerritorialNode) => !!node.children && node.children.length > 0;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 }

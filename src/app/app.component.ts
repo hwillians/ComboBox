@@ -12,9 +12,9 @@ export class AppComponent {
   chemin: string = ""
 
   receiveMessage(node: TerritorialNode) {
-    let region = node.region ? ('/' + node.region) : " "
-    let dep = node.department ? ('/' + node.department) : " "
-    let commune = node.commune ? ('/' + node.commune) : " "
+    let region = node.region ? ('/' + node.region) : ""
+    let dep = node.department ? ('/' + node.department) : ""
+    let commune = node.commune ? ('/' + node.commune) : ""
     this.chemin = region + dep + commune
   }
 }

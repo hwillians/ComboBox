@@ -1,8 +1,4 @@
 mat-card {
-
+  max-width: 600px;
   min-width: 400px;
-}
-
-.myComp {
-  display: inline-flex;
 }
