@@ -1,6 +1,9 @@
-<app-show-path [node]="node"></app-show-path>
+<div class="myComp">
+    <mat-card> 
+        <app-tree (nodeEvent)="receiveMessage($event)"></app-tree>
+        {{chemin}} 
+    </mat-card>   
+</div>
 
-<!-- <app-menu ></app-menu> -->
 
-<app-tree (nodeEvent)="receiveMessage($event)"></app-tree>
 

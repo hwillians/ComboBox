@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { TerritorialNode } from './models/territorial-node';
 
 @Component({
@@ -8,9 +8,13 @@ import { TerritorialNode } from './models/territorial-node';
 })
 export class AppComponent {
   title = 'ComboBox';
-  node!: TerritorialNode ;
+
+  chemin: string = ""
 
   receiveMessage(node: TerritorialNode) {
-    this.node = node
+    let region = node.region ? ('/' + node.region) : " "
+    let dep = node.department ? ('/' + node.department) : " "
+    let commune = node.commune ? ('/' + node.commune) : " "
+    this.chemin = region + dep + commune
   }
 }

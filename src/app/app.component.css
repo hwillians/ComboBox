@@ -1,0 +1,8 @@
+mat-card {
+
+  min-width: 400px;
+}
+
+.myComp {
+  display: inline-flex;
+}

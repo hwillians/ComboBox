@@ -1,3 +1,7 @@
+::ng-deep.mat-menu-panel {
+  max-width: none !important;
+}
+
 .example-tree-invisible {
     display: none;
   }

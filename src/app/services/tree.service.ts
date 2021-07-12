@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { communes } from '../data/communes';
 import { departements } from '../data/departements';
 import { regions } from '../data/regions';
-import { Departement } from '../models/departement';
 import { TerritorialNode } from '../models/territorial-node';
 
 @Injectable({
@@ -14,11 +13,8 @@ export class TreeService {
 
   loadTerritorialNode(): TerritorialNode[] {
 
-    const _pays = 'France';
-    // Inisitalise l'arbre evec entrée pays
-    let franceTree: TerritorialNode[] = [{ name: _pays }]
-    // un premier niveau avec les regions
     let regionsTree: TerritorialNode[] = []
+
     regions.forEach(region => {
       regionsTree.push({ name: region.name, region: region.name })
     });
@@ -44,8 +40,8 @@ export class TreeService {
       node.children = departmentsTree;
     });
 
-    franceTree[0].children = regionsTree
-    return franceTree
+
+    return regionsTree
   }
 }
 
